@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaf2f8;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.navbar.bg-custom {
+    background-color: #2471A3;
+}
+
+/* Color del texto del navbar */
+.navbar-nav .nav-link{
+    color: #FDFEFE !important; /*al tener múltiples estilos, este le da importancia para que la letra sea modificada a color blanco*/
+}
+
+/* Estilo para las opciones de "Registrarse" e "Iniciar Sesión" */
+.navbar-nav .nav-item .nav-link.register,
+.navbar-nav .nav-item .nav-link.login {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+/* Hover: para las opciones de "Registrarse" e "Iniciar Sesión" */
+.navbar-nav .nav-item .nav-link.register:hover,
+.navbar-nav .nav-item .nav-link.login:hover {
+    background-color: white;
+    color: #2980B9 !important;
+}
+
+/* Estilo del navbar-toggler */
+.navbar-toggler {
+    background-color: white;
+}
+
+main {
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: none;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    color: #007bff;
+}
+
+.btn-primary {
+    margin-top: 10px;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.result-box {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.result-box h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    margin: 0;
+    color: #6c757d;
+}
+
+
+/* Estilos del pie de página */
+.footer {
+    background-color: #333333;
+    color: white;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer .row {
+    width: 100%;
+    text-align: center;
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2471A3;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.g-recaptcha {
+    margin: 0 auto;
+}
