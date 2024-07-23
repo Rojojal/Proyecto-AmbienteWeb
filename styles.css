@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #eaf2f8;
+    background-color: #ffffff;
 }
 
 header {
@@ -9,6 +9,10 @@ header {
 
 .navbar.bg-custom {
     background-color: #2471A3;
+}
+
+.colorCardsInfo{
+    background-color: #F9F9FF;
 }
 
 /* Color del texto del navbar */
@@ -23,7 +27,16 @@ header {
     border-radius: 5px;
     padding: 5px 10px;
     margin-left: 10px;
-    color: white;
+    color: white !important;
+}
+
+.nav-link.login.Background.Color{
+    background-color: black !important;
+}
+
+.nav-link.register.Background.Color{
+    background-color: white !important;
+    color: black !important;
 }
 
 /* Hover: para las opciones de "Registrarse" e "Iniciar Sesión" */

@@ -14,13 +14,13 @@ class SpecialHeader extends HTMLElement {
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="date.html">Citas</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Notificaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Información para donantes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Sobre nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="infoDonates.html">Información para donantes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutUs.html">Sobre nosotros</a></li>
                     </ul>
                 </div>
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link register" href="register.html">Registrarse</a></li>
-                    <li class="nav-item"><a class="nav-link login" href="login.html">Iniciar Sesión</a></li>
+                    <li class="nav-item"><a class="nav-link register .nav-link register Background Color" href="register.html">Registrarse</a></li>
+                    <li class="nav-item"><a class="nav-link login .nav-link login Background Color" href="login.html">Iniciar Sesión</a></li>
                 </ul>
             </nav>
         </div>
