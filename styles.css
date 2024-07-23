@@ -8,7 +8,7 @@ header {
 }
 
 .navbar.bg-custom {
-    background-color: #2471A3;
+    background-color: #beceff;
 }
 
 .colorCardsInfo{
@@ -23,7 +23,7 @@ header {
 /* Estilo para las opciones de "Registrarse" e "Iniciar Sesión" */
 .navbar-nav .nav-item .nav-link.register,
 .navbar-nav .nav-item .nav-link.login {
-    border: 2px solid white;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
     padding: 5px 10px;
     margin-left: 10px;
@@ -104,7 +104,84 @@ section {
 }
 
 
-/* Estilos del pie de página */
+#notificaciones_nuevas {
+    border: 5px solid #007afe;
+    padding: 20px;
+    margin-right: 10px;
+    height: 500px; /* Increased height */
+    overflow-y: auto;
+}
+
+#notificaciones_vistas {
+    border: 5px solid gray;
+    padding: 20px;
+    margin-left: 10px;
+    height: 500px; /* Increased height */
+    overflow-y: auto;
+}
+
+#contenido_notificaciones {
+    margin-top: 100px;
+}
+
+h2 {
+    margin-bottom: 20px; 
+}
+
+.container .row .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#notificaciones_nuevas, #notificaciones_vistas {
+    margin-top: 20px;
+}
+
+.notification-item {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin: 10px 0;
+    height: 100%; 
+}
+
+.read-notification {
+    border-color: gray; 
+}
+
+.notification-item h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.notification-item p {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.verification-code-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#verificationCode {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+    flex: 1; 
+    min-width: 200px; 
+}
+
+.btn-secondary {
+    flex-shrink: 0; 
+}
+
+
 .footer {
     background-color: #333333;
     color: white;

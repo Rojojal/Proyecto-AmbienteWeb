@@ -4,7 +4,7 @@ class SpecialHeader extends HTMLElement {
         this.innerHTML = `
         <div id="header">
             <nav class="navbar navbar-expand-lg navbar-light bg-custom">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="home.html">
                     <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@ class SpecialHeader extends HTMLElement {
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="date.html">Citas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Notificaciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="notificaciones.html">Notificaciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="infoDonates.html">Información para donantes</a></li>
                         <li class="nav-item"><a class="nav-link" href="aboutUs.html">Sobre nosotros</a></li>
                     </ul>
@@ -44,7 +44,7 @@ class SpecialFooter extends HTMLElement {
                         <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
                     </div>
                     <div class="col-md-4">
-                        <a href="#" class="text-white">Iniciar como administrador</a>
+                        <a href="admindashboard.html" class="text-white">Iniciar como administrador</a>
                         <br>
                         <a href="contact.html" class="text-white">Contáctanos</a>
                     </div>
