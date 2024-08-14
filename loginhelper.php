@@ -1,4 +1,6 @@
 <?php
+     session_start();
+    
     include 'conexionBD.php';
 
     $correo_electronico = $_POST['email'];
@@ -15,6 +17,7 @@
         echo $contraseña_guardada; 
     } elseif (password_verify($contraseña_ingresada, $contraseña_guardada)) {
         header("Location: home.php");
+        $_SESSION['email'] = $correo_electronico;
         exit();
     } else {
         echo "Error: Contraseña o email incorrectos.";
