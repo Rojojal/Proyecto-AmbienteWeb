@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center">¡Inicia Sesión en BloodCare!</h2>
-                <form id="registerForm">
+                <form method="POST" action="loginhelper.php">
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
                         <input type="email" class="form-control" id="email" placeholder="Ingresa correo electrónico" name="email" required>
