@@ -14,7 +14,7 @@ class SpecialHeader extends HTMLElement {
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="date.php">Citas</a></li>
                         <li class="nav-item"><a class="nav-link" href="notificaciones.php">Notificaciones</a></li>
-                        <li class="nav-item"><a class="nav-link" href="infoDonates.php">Información para donantes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="infoDonantes.php">Información para donantes</a></li>
                         <li class="nav-item"><a class="nav-link" href="aboutus.php">Sobre nosotros</a></li>
                     </ul>
                 </div>
