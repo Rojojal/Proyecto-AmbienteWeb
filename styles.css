@@ -1,6 +1,17 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     background-color: #ffffff;
+}
+
+main {
+    flex: 1;
 }
 
 header {
@@ -11,16 +22,14 @@ header {
     background-color: #beceff;
 }
 
-.colorCardsInfo{
+.colorCardsInfo {
     background-color: #F9F9FF;
 }
 
-/* Color del texto del navbar */
-.navbar-nav .nav-link{
-    color: #FDFEFE !important; /*al tener múltiples estilos, este le da importancia para que la letra sea modificada a color blanco*/
+.navbar-nav .nav-link {
+    color: #FDFEFE !important;
 }
 
-/* Estilo para las opciones de "Registrarse" e "Iniciar Sesión" */
 .navbar-nav .nav-item .nav-link.register,
 .navbar-nav .nav-item .nav-link.login {
     border: 2px solid rgb(0, 0, 0);
@@ -30,29 +39,23 @@ header {
     color: white !important;
 }
 
-.nav-link.login.Background.Color{
+.nav-link.login.Background.Color {
     background-color: black !important;
 }
 
-.nav-link.register.Background.Color{
+.nav-link.register.Background.Color {
     background-color: white !important;
     color: black !important;
 }
 
-/* Hover: para las opciones de "Registrarse" e "Iniciar Sesión" */
 .navbar-nav .nav-item .nav-link.register:hover,
 .navbar-nav .nav-item .nav-link.login:hover {
     background-color: white;
     color: #2980B9 !important;
 }
 
-/* Estilo del navbar-toggler */
 .navbar-toggler {
     background-color: white;
-}
-
-main {
-    margin-top: 20px;
 }
 
 section {
@@ -103,12 +106,11 @@ section {
     color: #6c757d;
 }
 
-
 #notificaciones_nuevas {
     border: 5px solid #007afe;
     padding: 20px;
     margin-right: 10px;
-    height: 500px; /* Increased height */
+    height: 500px;
     overflow-y: auto;
 }
 
@@ -116,7 +118,7 @@ section {
     border: 5px solid gray;
     padding: 20px;
     margin-left: 10px;
-    height: 500px; /* Increased height */
+    height: 500px;
     overflow-y: auto;
 }
 
@@ -181,14 +183,12 @@ h2 {
     flex-shrink: 0; 
 }
 
-
 .footer {
     background-color: #333333;
     color: white;
     padding: 20px 0;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    text-align: center;
 }
 
 .footer .container {
@@ -200,7 +200,6 @@ h2 {
 
 .footer .row {
     width: 100%;
-    text-align: center;
 }
 
 .card h1 {

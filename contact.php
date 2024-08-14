@@ -23,7 +23,6 @@
 <body>
     <special-header></special-header>
     <main class="container">
-        <!-- Contact 1 - Bootstrap Brain Component -->
         <section class="bg-light py-3 py-md-5">
             <div class="container">
                 <div class="row justify-content-md-center">
