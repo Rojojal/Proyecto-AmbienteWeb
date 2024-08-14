@@ -27,7 +27,6 @@
                 </div>
             </nav>
 
-            <!-- Main Content -->
             <main class="col-md-8 ml-sm-auto col-lg-8 px-4 flex-fill">
                 <div id="main-content">
                     <div id="dashboard-form" class="form-container">
@@ -52,7 +51,7 @@
                             </div>
                             <div class="container">
                                 <div class="chart">
-                                    <canvas id="flujoSangre" width="300" height="300"></canvas>
+                                    <canvas id="flujoSangre" width="600" height="600"></canvas>
                                 </div>
                             </div>
                         </form>
@@ -65,7 +64,7 @@
                             </div>
                             <div class="container">
                                 <div class="chart">
-                                    <canvas id="citasAgendadas" width="300" height="300"></canvas>
+                                    <canvas id="citasAgendadas" width="200" height="200"></canvas>
                                 </div>
                             </div>
                         </form>
@@ -89,33 +88,30 @@
                                 <button type="submit" class="btn btn-primary">Eliminar Doctor</button>
                             </form>
                             <div id="doctores-list" class="mt-3">
-                                <!-- Lista de Doctores -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Reportes Form with CRUD -->
+
                     <div id="reportes-form" class="form-container">
                         <h1>Reportes</h1>
                         <div class="crud-container">
                             <form id="reportes-form-crud">
                                 <div class="form-group">
                                     <label for="reporteTitle">Título del Reporte</label>
-                                    <input type="text" class="form-control" id="reporteTitle" placeholder="Enter title">
+                                    <input type="text" class="form-control" id="reporteTitle" placeholder="Ingrese el título">
                                 </div>
                                 <div class="form-group">
                                     <label for="reporteContent">Contenido del Reporte</label>
-                                    <textarea class="form-control" id="reporteContent" rows="3" placeholder="Enter content"></textarea>
+                                    <textarea class="form-control" id="reporteContent" rows="3" placeholder="Ingrese el contenido"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Realizar Reporte</button>
                             </form>
                             <div id="reportes-list" class="mt-3">
-                                <!-- Lista de Reportes -->
                             </div>
                         </div>
                     </div>
 
-                    <!-- Configuración Form with CRUD -->
                     <div id="configuracion-form" class="form-container">
                         <h1>Configuración</h1>
                         <div class="crud-container">
@@ -129,7 +125,7 @@
                                 <div class="form-group">
                                     <label for="clinicaAddress">Dirección de la Clínica</label>
                                     <br>
-                                    <label for="clinicaAddress" id="clinicaAddress" placeholder="300 metros oeste del centro de Cartago">
+                                    <label for="clinicaAddress" id="clinicaAddress">300 metros oeste del centro de Cartago</label>
                                     <br>
                                     <label for="clinicaAddress">Dirección de la Clínica</label>
                                     <input type="text" class="form-control" id="clinicaAddressNew" placeholder="Ingrese nueva dirección">
@@ -137,7 +133,6 @@
                                 <button type="submit" class="btn btn-primary">Actualizar Información</button>
                             </form>
                             <div id="configuracion-list" class="mt-3">
-                                <!-- Información de la Clínica -->
                             </div>
                         </div>
                     </div>
@@ -148,47 +143,21 @@
             <nav id="right-menu" class="col-md-2 d-none d-md-block bg-light">
                 <div class="position-sticky">
                     <h4 class="p-3">Nombre clínica</h4>
-                    <h class="p-3">Citas</h>
-                    <h class="p-3">4250</h>
-                    <h class="p-3">Pacientes Totales</h>
-                    <h class="p-3">1.1k</h>
-                    <h class="p-3">Puntuación</h>
-                    <h class="p-3">4.9</h>
+                    <div class="new-metrics-container">
+                        <div class="new-metric-box">
+                            <h5 class="label">Citas</h5>
+                            <p class="value">4250</p>
+                        </div>
+                        <div class="new-metric-box">
+                            <h5 class="label">Pacientes Totales</h5>
+                            <p class="value">1.1k</p>
+                        </div>
+                        <div class="new-metric-box">
+                            <h5 class="label">Puntuación</h5>
+                            <p class="value">4.9</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                          Accordion Item #1
-                        </button>
-                      </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                          Accordion Item #2
-                        </button>
-                      </h2>
-                      <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                          Accordion Item #3
-                        </button>
-                      </h2>
-                      <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                      </div>
-                    </div>
-                  </div>
-
             </nav>
         </div>
         

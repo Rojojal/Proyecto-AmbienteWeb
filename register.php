@@ -111,25 +111,18 @@
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
                         </form>
-                        <p class="text-center mt-3">¿Ya tienes cuenta? Entonces <a href="login.html">inicia sesión
+                        <p class="text-center mt-3">¿Ya tienes cuenta? Entonces <a href="login.php">inicia sesión
                                 aquí</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> 
-    <!--Popper.js es una biblioteca de posicionamiento que ayuda a colocar elementos emergentes, como tooltips, popovers, y dropdowns, de manera eficiente y precisa en tu página web.
-    Es un componente esencial para algunas funcionalidades de Bootstrap, como los dropdowns y tooltips.-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!--Bootstrap es una biblioteca popular de CSS y JavaScript que facilita la creación de sitios web responsivos y modernos.
-    La parte de JavaScript de Bootstrap incluye scripts para componentes interactivos como modales, carousels, tabs, y más. Necesita de jQuery y Popper.js para funcionar correctamente.-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!--reCAPTCHA es un servicio de Google que protege tu sitio web del spam y el abuso. Este script carga y configura el widget reCAPTCHA, para asegurar que son llenados por humanos y no por bots.
-    La configuración async defer asegura que el script se carga de manera asíncrona y no bloquea la carga del resto de la página.-->
     <script src = "./fragments.js"></script>
 
 </body>

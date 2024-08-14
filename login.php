@@ -28,7 +28,7 @@
                         <label class="form-check-label" for="remember-me">Mantener sesión iniciada</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block my-4">Iniciar Sesión</button>
-                    <p class="text-center">¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+                    <p class="text-center">¿No tienes cuenta? <a href="register.php">Regístrate aquí</a></p>
                 </form>
             </div>
         </div>
