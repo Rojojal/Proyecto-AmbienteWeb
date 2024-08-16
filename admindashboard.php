@@ -1,3 +1,19 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['user_data'])) {
+        header("Location: login.php");
+        exit();
+    }
+    
+    $user_data = $_SESSION['user_data'];
+    
+    if ($user_data['administrador'] != 1) {
+        header("Location: register_admin.php");
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +27,7 @@
 </head>
 <body>
 
-    <div id="header">
+<div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
                 <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
@@ -28,8 +44,9 @@
                 </ul>
             </div>
             <ul class="navbar-nav">
-                <?php if (isset($_SESSION['email'])): ?>
-                    <li class="nav-item"><span class="nav-link">Bienvenido, <?php echo $_SESSION['email']; ?></span></li>
+                <?php if (isset($_SESSION['user_data'])): ?>
+                <?php $user = $_SESSION['user_data'];?>
+                    <li class="nav-item"><span class="nav-link">Bienvenido, <?php echo $user['nombre_completo']; ?></span></li>
                     <li class="nav-item"><a class="nav-link" href="closeSession.php">Cerrar Sesión</a></li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link register .nav-link register Background Color" href="register.php">Registrarse</a></li>

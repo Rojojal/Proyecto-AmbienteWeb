@@ -1,6 +1,5 @@
 <?php
     session_start();
-    //session_destroy(); 
 ?>
 
 
@@ -33,8 +32,9 @@
                 </ul>
             </div>
             <ul class="navbar-nav">
-                <?php if (isset($_SESSION['email'])): ?>
-                    <li class="nav-item"><span class="nav-link">Bienvenido, <?php echo $_SESSION['email']; ?></span></li>
+                <?php if (isset($_SESSION['user_data'])): ?>
+                <?php $user = $_SESSION['user_data'];?>
+                    <li class="nav-item"><span class="nav-link">Bienvenido, <?php echo $user['nombre_completo']; ?></span></li>
                     <li class="nav-item"><a class="nav-link" href="closeSession.php">Cerrar Sesión</a></li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link register .nav-link register Background Color" href="register.php">Registrarse</a></li>
@@ -122,7 +122,7 @@
                         <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
                     </div>
                     <div class="col-md-4">
-                        <a href="admindashboard.php" class="text-white">Iniciar como administrador</a>
+                        <a href="admindashboard.php" class="text-white">Administrar Clínica</a>
                         <br>
                         <a href="contact.php" class="text-white">Contáctanos</a>
                     </div>

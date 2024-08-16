@@ -16,9 +16,20 @@
     if (strpos($contraseña_guardada, 'Error:') === 0) {
         echo $contraseña_guardada; 
     } elseif (password_verify($contraseña_ingresada, $contraseña_guardada)) {
-        header("Location: home.php");
-        $_SESSION['email'] = $correo_electronico;
-        exit();
+        $stmt = $conexion->prepare("CALL ObtenerUsuarioPorEmail(?)");
+        $stmt->bind_param("s", $correo_electronico);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $user_data = $result->fetch_assoc();
+            $_SESSION['user_data'] = $user_data;
+
+            header("Location: home.php");
+            exit();
+        } else {
+            echo "Error: No se encontraron los datos del usuario.";
+        }
     } else {
         echo "Error: Contraseña o email incorrectos.";
     }
