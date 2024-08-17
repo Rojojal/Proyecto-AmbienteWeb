@@ -59,7 +59,7 @@
                         <p class="card-text">Antes de donar sangre, asegúrate de estar sano, bien hidratado y haber
                             comido adecuadamente. Debes cumplir con los requisitos de edad y peso, y no estar tomando
                             ciertos medicamentos.</p>
-                        <a href="infoDonates.html" class="btn btn-primary">Más Información</a>
+                        <a href="infoDonantes.php" class="btn btn-primary">Más Información</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         <h3 class="card-title">¿Deseas una cita para donar?</h3>
                         <p class="card-text">Te brindamos una gran red de clínicas donde puedes acercarte a donar
                             sangre, gracias a la asociación de las mismas, si deseas agendar hazlo ya mismo</p>
-                        <a href="date.html" class="btn btn-primary">Agenda tu cita</a>
+                        <a href="date.php" class="btn btn-primary">Agenda tu cita</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                         <p class="card-text">Si eres administrador de un centro de donación o clínica y deseas que haya
                             mayor visibilidad y mejor flujo inscribe la clínica en la página, nos dedicamos a
                             administrar y mejorar el flujo de donaciones de sangre a nivel nacional</p>
-                        <a href="#" class="btn btn-primary">Más Información</a>
+                        <a href="admindashboard.php" class="btn btn-primary">Más Información</a>
                     </div>
                 </div>
             </div>
