@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
 }
 
 body {
@@ -10,38 +11,38 @@ body {
 
 .container-fluid {
     display: flex;
-    flex: 1; 
-}
-
-.form-container {
-    display: none;
+    flex: 1;
 }
 
 .row {
-    flex: 1; 
+    flex: 1;
+    display: flex;
 }
 
 #left-menu, #right-menu {
-    height: 100%; 
-    padding-top: 1rem; 
-    position: sticky; 
-    top: 0;
+    height: 100%;
+    padding-top: 1rem;
+    background-color: #f8f9fa;
 }
 
 #left-menu {
-    background-color: #f8f9fa; 
     flex: 0 0 15%;
+    position: sticky;
+    top: 0;
 }
 
 #right-menu {
-    background-color: #f8f9fa; 
-    flex: 0 0 15%; 
+    flex: 0 0 15%;
+    position: fixed;
+    right: 0; 
+    top: 0; 
 }
 
 main {
     padding: 2rem;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     flex: 1;
+    margin-right: 15%; 
 }
 
 h4 {
@@ -58,25 +59,19 @@ h4 {
     font-weight: bold;
 }
 
-special-footer {
+.special-footer {
     margin-top: auto;
-}
-
-#left-menu {
-    background-color: #f8f9fa; 
-    flex: 0 0 15%; 
-    padding-top: 2rem; 
 }
 
 .menu-buttons {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 0.5rem;
 }
 
 .menu-buttons .btn {
-    border-radius: 0; 
-    padding: 1rem; 
+    border-radius: 0;
+    padding: 1rem;
 }
 
 .menu-buttons .btn:hover {
@@ -107,59 +102,59 @@ special-footer {
 .metric-box-new {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers items horizontally */
-    border: 1px solid #ccc; /* Adds a border */
+    align-items: center;
+    border: 1px solid #ccc;
     padding: 1rem;
-    border-radius: 8px; /* Rounds the corners */
-    width: 100px; /* Adjust width as needed */
+    border-radius: 8px;
+    width: 100px;
     text-align: center;
 }
 
 .metric-box-new .label {
-    margin-bottom: 0.5rem; /* Adds space between label and value */
-    font-weight: bold; /* Makes label bold */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 .metric-box-new .value {
-    font-size: 1.5rem; /* Increases font size of value */
-    color: #333; /* Sets color for value text */
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .new-metrics-container {
     display: flex;
-    gap: 0.5rem; /* Reduced gap between metrics */
-    padding: 0.5rem; /* Reduced padding */
+    gap: 0.5rem;
+    padding: 0.5rem;
 }
 
 .new-metric-box {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers items horizontally */
+    align-items: center;
     background-color: #dcf2ff;
     border: 1px solid #ccc;
-    padding: 0.5rem; /* Reduced padding */
-    border-radius: 3px; /* Reduced border radius */
-    width: 80px; /* Reduced width */
+    padding: 0.5rem;
+    border-radius: 3px;
+    width: 80px;
     text-align: center;
 }
 
 .new-metric-box .label {
-    margin-bottom: 0.25rem; /* Reduced space between label and value */
-    font-size: 0.75rem; /* Smaller font size for label */
-    font-weight: bold; /* Keeps label bold */
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: bold;
 }
 
 .new-metric-box .value {
-    font-size: 1rem; /* Smaller font size for value */
-    color: #333; /* Keeps color for value text */
+    font-size: 1rem;
+    color: #333;
 }
 
 .chart {
     width: 600px;
     height: 600px;
-  }
-  
-  .chart canvas {
+}
+
+.chart canvas {
     width: 100% !important;
     height: 100% !important;
-  }
+}

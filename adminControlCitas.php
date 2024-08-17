@@ -58,9 +58,9 @@
         </nav>
     </div>
 
-    <main class="container">
-        <h3>Aqui va admindashboard</h3>
-    </main>
+    <div class="container mt-4">
+
+    </div>
     
     <div id="footer" class="footer bg-dark text-white">
             <div class="container">

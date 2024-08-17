@@ -27,7 +27,7 @@
 </head>
 <body>
 
-    <div id="header">
+<div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
                 <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
@@ -59,7 +59,7 @@
     </div>
 
     <main class="container">
-        <h3>Aqui va admindashboard</h3>
+        <h3>Aqui va adminVistas</h3>
     </main>
     
     <div id="footer" class="footer bg-dark text-white">

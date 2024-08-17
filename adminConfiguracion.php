@@ -59,7 +59,7 @@
     </div>
 
     <main class="container">
-        <h3>Aqui va admindashboard</h3>
+        <h3>Aqui va adminConfig</h3>
     </main>
     
     <div id="footer" class="footer bg-dark text-white">
