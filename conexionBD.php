@@ -11,7 +11,7 @@
     }*/
 
     // Conexion Esteban
-
+    /*
     $conexion = new mysqli("localhost", "root", "", "proyecto");
 
     if ($conexion->connect_error) {
@@ -19,6 +19,7 @@
     } else {
         echo "Conexión exitosa";
     }
+        */
 
     // Otra conexión
 
@@ -40,4 +41,14 @@
     } else {
         echo "Conexión exitosa";
     }*/
+
+      // Conexion Josué
+
+      $conexion = new mysqli("localhost", "root", "Josue09123g", "proyecto");
+
+      if ($conexion->connect_error) {
+          die("Conexión fallida: " . $conexion->connect_error);
+      } else {
+          echo "Conexión exitosa";
+      }
 ?>

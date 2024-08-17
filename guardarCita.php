@@ -12,17 +12,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hora = $_POST['hora'];
 
 
+// Cambiar formato de la fecha
+$fechaFormateada = DateTime::createFromFormat('m/d/Y', $fecha)->format('Y-m-d');
+
+
 // Insertar los datos en la base de datos
 $sql = "INSERT INTO tab_citas (nombre, cedula, correo, telefono, fecha, hora) VALUES (?, ?, ?, ?, ?, ?)";
 
-$stmt = $conexion->prepare($sql);
+$stmt = $conexion->prepare($sql);   
 
 if (!$stmt) {
     die("Error en la preparación de la consulta: " . $conexion->error);
 }
 
 // Bind de parámetros
-$stmt->bind_param("ssssss", $nombre, $cedula, $correo, $telefono, $fecha, $hora);
+$stmt->bind_param("ssssss", $nombre, $cedula, $correo, $telefono, $fechaFormateada, $hora);
 
 if ($stmt->execute()) {
     echo "Cita agendada correctamente";
