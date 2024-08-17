@@ -1,8 +1,9 @@
 <?php
 
-include('conexionBD.php'); // Incluir el archivo de conexión existente
+include('conexionBD.php'); 
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Aquí asumiendo que los campos del formulario se llaman 'fecha', 'hora', 'nombre', etc.
+    
     $nombre = $_POST['nombre'];
     $cedula = $_POST['cedula'];
     $correo = $_POST['correo'];
@@ -12,19 +13,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 // Insertar los datos en la base de datos
-$sql = "INSERT INTO tab_citas (nombre, cedula, correo, telefono, fecha, hora) VALUES ('$nombre', '$cedula', '$correo', '$telefono', '$fecha', '$hora')";
+$sql = "INSERT INTO tab_citas (nombre, cedula, correo, telefono, fecha, hora) VALUES (?, ?, ?, ?, ?, ?)";
 
-$stmt = $conn->prepare($sql);
+$stmt = $conexion->prepare($sql);
+
+if (!$stmt) {
+    die("Error en la preparación de la consulta: " . $conexion->error);
+}
+
+// Bind de parámetros
 $stmt->bind_param("ssssss", $nombre, $cedula, $correo, $telefono, $fecha, $hora);
 
 if ($stmt->execute()) {
-    echo"Cita agendada correctamente";
+    echo "Cita agendada correctamente";
 } else {
-    echo"Error al agendar la cita: " . $conn->error;
+    die("Error al agendar la cita: " . $stmt->error);
 }
 
-// Cerrar la declaración y la conexión$stmt->close();
-$conn->close();
+$stmt->close();
+$conexion->close();
 }
 
 ?>

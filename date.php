@@ -75,7 +75,28 @@
                                 <label for="inputNumber" class="form-label">Teléfono</label>
                                 <input type="text" class="form-control" id="inputNumber" name="telefono" placeholder="8888-8888" required>
                             </div>
-                        
+                            <div class="col-md-6">
+                                <label for="inputDate" class="form-label">Fecha</label>
+                                <div class="input-group date" id="datepicker">
+                                    <input type="text" class="form-control" id="inputDate" name="fecha" required>
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-white">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="horaCita" class="form-label">Hora</label>
+                                <select class="form-select" id="horaCita" name="hora" required>
+                                    <option selected>Horas Disponibles</option>
+                                    <!-- Opciones generadas dinámicamente en el script -->
+                                </select>
+                            </div>                     
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-info">Agendar Cita</button>
+                            </div>
+                        </form>                                                        
                     </div>
                     <div class="col">
                         <label>Ubicación</label>
@@ -86,43 +107,9 @@
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <section class="container">
-                            <h3 class="pt-4 pb-2">Seleccione la fecha de la cita</h3>
-                            <form>
-                                <div class="row form-group">
-                                    <label for="date" class="col-sm-1 col-form-label">Fecha:</label>
-                                    <div class="col-sm-4">
-                                        <div class="input-group date" id="datepicker">
-                                            <input type="text" class="form-control" id="inputDate" name="fecha" required>
-                                            <span class="input-group-append">
-                                                <span class="input-group-text bg-white">
-                                                    <i class="fa fa-calendar"></i>
-                                                </span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </section>
-                    </div>
-                    <div class="col">
-                        <section class="container">
-                            <h3 class="pt-4 pb-2">Seleccione la hora de la cita</h3>
-                            <select class="form-select" id="horaCita" aria-label="Default select example" name="hora" required>
-                                <option selected>Horas Disponibles</option>                                
-                            </select>
-                        </section>
-                    </div>
-        </section>
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-info">Agendar Cita</button>
-        </div>
-        </form>
+                </div>
+            </div>                    
+        </section>        
     </main>
 
     <div id="footer" class="footer bg-dark text-white">
