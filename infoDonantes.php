@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BloodCare</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/686814a22f.js" crossorigin="anonymous"></script>
     <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -56,7 +57,8 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body colorCardsInfo">
-                        <h3 class="card-title">Requisitos para donar</h3>
+                        <h3 class="card-title">Requisitos para donar <i class="fa-solid fa-notes-medical" style="font-size: 1.5rem; color: black" ></i></h3>
+        
                         <p class="card-text">
                             <ul>
                                 
@@ -78,7 +80,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body colorCardsInfo">
-                        <h3 class="card-title">Periodos de espera</h3>
+                        <h3 class="card-title">Periodos de espera <i class="fa-solid fa-hourglass-start" style="font-size: 1.5rem; color: black"></i></h3>
                         <p class="card-text">
                             <ul>
                                 <li>15 dias después de terminar los sintomas de gripe, resfriado, diarrea o enfermedad</li>
@@ -98,7 +100,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body colorCardsInfo">
-                        <h3 class="card-title">Consejos antes de donar</h3>
+                        <h3 class="card-title">Consejos antes de donar <i class="fa-solid fa-shield-halved" style="font-size: 1.5rem; color: black"></i></h3>
                         <p class="card-text"> 
                             <ul>
                                 <li>No se recomienda estar en ayuno, consuma un desayuno ligero evitando lacteos y grasas</li>
@@ -118,7 +120,7 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body colorCardsInfo">
-                        <h3 class="card-title">Consejos después de donar</h3>
+                        <h3 class="card-title">Consejos después de donar <i class="fa-regular fa-thumbs-up" style="font-size: 1.5rem; color: black"></i></h3>
                         <p class="card-text">
                             <ul>
                                 <li>Evitar realizar ejercicios o esfuerzo en las siguientes 24 horas después de donar</li>

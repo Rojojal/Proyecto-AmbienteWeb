@@ -68,7 +68,7 @@
                 <h4 class="p-3">BloodCare Dashboard</h4>
                 <br>
                 <h1>Información de la Clínica</h1>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div class="card">
                         <div class="card-body">
                             <h1 class="text-center">Información de la Clínica</h1>
