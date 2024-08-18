@@ -58,9 +58,72 @@
         </nav>
     </div>
 
-    <main class="container">
-        <h3>Aqui va admindashboard</h3>
+
+<!-- Sección de la próxima cita -->
+<div class="col-md-8 mx-auto mt-5"> 
+    <div class="card">
+        <div class="card-body">
+            <h2 class="text-center">Próximas Citas</h2>
+            <p><strong>Fecha:</strong> <?php echo $cita_proxima['fecha']; ?></p>
+            <p><strong>Hora:</strong> <?php echo $cita_proxima['hora']; ?></p>
+            <p><strong>Lugar:</strong> <?php echo $cita_proxima['lugar']; ?></p>
+            <p><strong>Descripción:</strong> <?php echo $cita_proxima['descripcion']; ?></p>
+        </div>
+    </div>
+</div>
+
+
+   
+<!-- Contenido principal -->
+<main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card profile-card">
+                    <div class="card-body">
+                        <h1 class="text-center">Tu perfil</h1>
+                        <form method="POST" action="actualizarUsuarioHelper.php">
+                            <input type="hidden" name="id_usuario" value="<?php echo $user_data['id_usuario']; ?>">
+                            <div class="form-group">
+                                <label for="nombreCompleto">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombreCompleto" name="nombre_completo" value="<?php echo $user_data['nombre_completo']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cedula">Cédula:</label>
+                                <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $user_data['cedula']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoSangre">Tipo de Sangre:</label>
+                                <input type="text" class="form-control" id="tipoSangre" name="tipo_sangre" value="<?php echo $user_data['tipo_sangre']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="provincia">Provincia:</label>
+                                <input type="text" class="form-control" id="provincia" name="provincia" value="<?php echo $user_data['provincia']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="canton">Cantón:</label>
+                                <input type="text" class="form-control" id="canton" name="canton" value="<?php echo $user_data['canton']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="distrito">Distrito:</label>
+                                <input type="text" class="form-control" id="distrito" name="distrito" value="<?php echo $user_data['distrito']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccionDetallada">Dirección Detallada:</label>
+                                <input type="text" class="form-control" id="direccionDetallada" name="direccion_detallada" value="<?php echo $user_data['direccion_detallada']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="correoElectronico">Correo Electrónico:</label>
+                                <input type="email" class="form-control" id="correoElectronico" name="correo_electronico" value="<?php echo $user_data['correo_electronico']; ?>" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+
     
     <div id="footer" class="footer bg-dark text-white">
             <div class="container">

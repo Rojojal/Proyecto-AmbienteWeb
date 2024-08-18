@@ -158,3 +158,18 @@ h4 {
     width: 100% !important;
     height: 100% !important;
 }
+
+
+.profile-card {
+    margin: auto;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.profile-card h1 {
+    margin-bottom: 1.5rem;
+}
+.profile-card p {
+    margin: 0.5rem 0;
+}
