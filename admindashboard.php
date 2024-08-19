@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="styles_dashboard.css">
 </head>
 <body>
-<?php include 'mostrarCitasPerfil.php'; ?>
+
     <div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
@@ -92,8 +92,41 @@
                                 <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $user_data['cedula']; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="tipoSangre">Tipo de Sangre:</label>
-                                <input type="text" class="form-control" id="tipoSangre" name="tipo_sangre" value="<?php echo $user_data['tipo_sangre']; ?>" required>
+                                <label>Tipo de sangre:</label>
+                                <div class="d-flex justify-content-around">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="oNeg" value="O-" <?php echo ($user_data['tipo_sangre'] == 'O-') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="oNeg">O-</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="oPos" value="O+" <?php echo ($user_data['tipo_sangre'] == 'O+') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="oPos">O+</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="aNeg" value="A-" <?php echo ($user_data['tipo_sangre'] == 'A-') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="aNeg">A-</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="aPos" value="A+" <?php echo ($user_data['tipo_sangre'] == 'A+') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="aPos">A+</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="bNeg" value="B-" <?php echo ($user_data['tipo_sangre'] == 'B-') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="bNeg">B-</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="bPos" value="B+" <?php echo ($user_data['tipo_sangre'] == 'B+') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="bPos">B+</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="abNeg" value="AB-" <?php echo ($user_data['tipo_sangre'] == 'AB-') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="abNeg">AB-</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_sangre" id="abPos" value="AB+" <?php echo ($user_data['tipo_sangre'] == 'AB+') ? 'checked' : ''; ?>>
+                                        <label class="form-check-label" for="abPos">AB+</label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="provincia">Provincia:</label>
@@ -123,7 +156,7 @@
         </div>
     </main>
 
-
+    <input type="text" class="form-control" id="tipoSangre" name="tipo_sangre" value="<?php echo $user_data['tipo_sangre']; ?>" required>
     
     <div id="footer" class="footer bg-dark text-white">
             <div class="container">

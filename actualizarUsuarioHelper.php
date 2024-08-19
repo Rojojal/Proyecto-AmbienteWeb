@@ -4,7 +4,7 @@
     include 'conexionBD.php';
 
     if (!isset($_POST['id_usuario']) || !isset($_POST['nombre_completo'])  || !isset($_POST['cedula'])  || !isset($_POST['tipo_sangre'])  || !isset($_POST['provincia'])  || !isset($_POST['canton'])  || !isset($_POST['distrito'])  || !isset($_POST['direccion_detallada'])  || !isset($_POST['correo_electronico'])) {
-        die("Datos insuficientes para registrar la cita.");
+        die("Datos insuficientes para actualizar el perfil.");
     }
 
     $id_usuario = $_POST['id_usuario'];
