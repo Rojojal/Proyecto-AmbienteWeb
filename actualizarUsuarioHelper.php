@@ -21,6 +21,20 @@
     $stmt->bind_param("sssssssss", $id_usuario, $nombre_completo, $cedula, $tipo_sangre, $provincia, $canton, $distrito, $direccion_detallada, $correo_electronico);
 
     if ($stmt->execute()) {
+       
+        $stmt = $conexion->prepare("CALL ObtenerUsuarioPorEmail(?)");
+        $stmt->bind_param("s", $correo_electronico);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $user_data = $result->fetch_assoc();
+            $_SESSION['user_data'] = $user_data;
+        } else {
+            echo "Error: No se encontraron los datos del usuario.";
+        }
+
+        $stmt->close();
         header("Location: admindashboard.php?updated=1");
         exit();
     } else {

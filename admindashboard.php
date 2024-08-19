@@ -7,7 +7,7 @@
     }
     
     $user_data = $_SESSION['user_data'];
-    
+  
     if ($user_data['administrador'] != 1) {
         header("Location: register_admin.php");
         exit();
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="styles_dashboard.css">
 </head>
 <body>
-
+<?php include 'mostrarCitasPerfil.php'; ?>
     <div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
