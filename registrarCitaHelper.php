@@ -13,7 +13,11 @@
             $query->bind_param("ii", $id_cita, $id_usuario);
 
             if ($query->execute()) {
-                header("Location: home.php");
+                //header("Location: home.php");
+                echo "<script>
+                        alert('¡Cita agendada exitosamente!');
+                        window.location.href = 'home.php';
+                      </script>";
                 exit();
             } else {
                 echo "Error al agendar la cita: " . $conexion->error;

@@ -39,17 +39,17 @@
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     } else {
-        echo "Conexión exitosa";
+        //echo "Conexión exitosa";
     }*/
 
     // Conexion Josué
 
-      $conexion = new mysqli("localhost", "root", "Josue09123g", "proyecto");
+      /*$conexion = new mysqli("localhost", "root", "Josue09123g", "proyecto");
 
       if ($conexion->connect_error) {
           die("Conexión fallida: " . $conexion->connect_error);
       } else {
         // Para q no se muestre el ecoho en dashboard general
         error_log("Conexión exitosa");
-      }
+      }*/
 ?>
