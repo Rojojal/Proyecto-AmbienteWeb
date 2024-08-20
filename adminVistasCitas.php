@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('dashboardQueries.php');
 
     if (!isset($_SESSION['user_data'])) {
         header("Location: login.php");
@@ -59,7 +60,35 @@
     </div>
 
     <main class="container">
-        <h3>Aqui va adminVistas</h3>
+        <h3>AdminVistas</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Distribución de Usuarios por Tipo de Sangre</h4>
+                <canvas id="chartTipoSangre"></canvas>
+            </div>
+            <div class="col-md-6">
+            <h4>Cantidad de Usuarios por Provincia</h4>
+                <canvas id="chartProvincia"></canvas>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Capacidad Total vs Capacidad Usada de Clínicas</h4>
+                <canvas id="chartClinicas"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h4>Citas por Estado</h4>
+                <canvas id="chartCitasEstado"></canvas>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Citas por Mes</h4>
+                <canvas id="chartCitasMes"></canvas>
+            </div>
+        </div>
     </main>
     
     <div id="footer" class="footer bg-dark text-white">
@@ -86,5 +115,116 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="citasAgendadas.js"></script>
     <script src="flujoSangre.js"></script>
-</body>
+    
+    
+    <script>
+  const ctx = document.getElementById('chartTipoSangre');
+ new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: <?php echo json_encode(array_column($data_tipo_sangre, 'tipo_sangre')); ?>,
+        datasets: [{
+            label: 'Cantidad por Tipo de Sangre',
+            data: <?php echo json_encode(array_column($data_tipo_sangre, 'total')); ?>,
+        
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+const ctxP  = document.getElementById('chartProvincia');
+new Chart(ctxP, {
+                   type: 'bar',
+                        data: {
+                            labels: <?php echo json_encode(array_column($data_provincia, 'provincia')); ?>,
+                            datasets: [{
+                                label: 'Cantidad de Usuarios por Provincia',
+                                data: <?php echo json_encode(array_column($data_provincia, 'total')); ?>,
+                                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                                borderColor: 'rgba(153, 102, 255, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+const ctxC = document.getElementById('chartClinicas');
+new Chart(ctxC, {
+    type: 'bar',
+    data: {
+        labels: <?php echo json_encode(array_column($clinicas_data, 'nombre_clinica')); ?>,
+        datasets: [{
+            label: 'Capacidad Total',
+            data: <?php echo json_encode(array_column($clinicas_data, 'capacidad')); ?>,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Capacidad Usada',
+            data: <?php echo json_encode(array_column($clinicas_data, 'citas_agendadas')); ?>,
+            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+            borderColor: 'rgba(255, 159, 64, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+const ctxE = document.getElementById('chartCitasEstado');
+new Chart(ctxE, {
+    type: 'pie',
+    data: {
+        labels: <?php echo json_encode(array_column($citas_estado_data, 'estado_cita')); ?>,
+        datasets: [{
+            data: <?php echo json_encode(array_column($citas_estado_data, 'total')); ?>,
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+            borderWidth: 1
+        }]
+    }
+});
+
+const ctxM = document.getElementById('chartCitasMes');
+new Chart(ctxM, {
+    type: 'line',
+    data: {
+        labels: <?php echo json_encode(array_column($citas_mes_data, 'mes')); ?>,
+        datasets: [{
+            label: 'Citas por Mes',
+            data: <?php echo json_encode(array_column($citas_mes_data, 'total')); ?>,
+            fill: false,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            tension: 0.1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+    </body>
 </html>

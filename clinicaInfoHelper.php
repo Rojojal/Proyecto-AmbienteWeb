@@ -30,5 +30,5 @@
     }
 
     $stmt->close();
-    $conexion->close();
+    //$conexion->close();
 ?>
