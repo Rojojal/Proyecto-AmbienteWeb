@@ -31,6 +31,22 @@
   ![Imagen1](home.JPG)
 
   ![Imagen1](dashboard.JPG)
+  
+  ![Imagen1](register.PNG)
+
+  ![Imagen1](control.PNG)
+
+  ![Imagen1](gestion.PNG)
+
+  ![Imagen1](contact.PNG)
+
+  ![Imagen1](citas.PNG)
+
+  ![Imagen1](profile.PNG)
+
+  ![Imagen1](about.PNG)
+
+  ![Imagen1](donators.PNG)
 
 ## Conclusiones <a name="conclusiones"></a> 
 - Durante el desarrollo de este proyecto sobre el sistema de gestión de sangre, abordamos aspectos que contribuyeron significativamente a la eficiencia y seguridad del sistema, ya sea como el inicio de sesión del usuario o de no poder crear una cita sin registrarse después.
