@@ -97,7 +97,7 @@ function getCitasPorMes($conexion, $id_clinica) {
     return $data_citas_mes;
 }
 
-function getCantidadSangrePorFecha($conexion, $id_clinica) {
+/*function getCantidadSangrePorFecha($conexion, $id_clinica) {
     $data_sangre = [];
     $query_sangre = "SELECT DATE_FORMAT(fecha_cita, %Y-%m-%d') as fecha, SUM(cantidad_sangre) as total_sangre
                      FROM tab_citas
@@ -120,11 +120,11 @@ function getCantidadSangrePorFecha($conexion, $id_clinica) {
 
     $stmt->close();
     return $data_sangre;
-}
+}*/
 
 $data_tipo_sangre = getTipoSangre($conexion);
 $data_provincia = getProvincia($conexion);
 $citas_estado_data = getCitasEstado($conexion, $clinica_data['id_clinica']);
 $citas_mes_data = getCitasPorMes($conexion, $clinica_data['id_clinica']);
-$flujo_sangre_data = getCantidadSangrePorFecha($conexion, $id_clinica['id_clinica']);
+/*$flujo_sangre_data = getCantidadSangrePorFecha($conexion, $id_clinica['id_clinica']);*/
 ?>

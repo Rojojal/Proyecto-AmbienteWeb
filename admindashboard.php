@@ -242,7 +242,7 @@
             }
         });
 
-        const ctxM = document.getElementById('chartCantidadSangre');
+        /*const ctxM = document.getElementById('chartCantidadSangre');
         new Chart(ctxM, {
             type: 'line',
             data: {
@@ -262,7 +262,7 @@
                     }
                 }
             }
-        });
+        });*/
 </script>
 
     </body>
