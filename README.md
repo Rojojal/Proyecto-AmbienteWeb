@@ -26,27 +26,27 @@
 - Herramientas de Prototipado: Figma
 - Frameworks/Bibliotecas: JQuery, Bootstrap
 
-  ![Imagen1](inicio.JPG)
+  ![Imagen1](imagenes/inicio.JPG)
   
-  ![Imagen1](home.JPG)
+  ![Imagen1](imagenes/home.JPG)
 
-  ![Imagen1](dashboard.JPG)
+  ![Imagen1](imagenes/dashboard.JPG)
   
-  ![Imagen1](register.PNG)
+  ![Imagen1](imagenes/register.PNG)
 
-  ![Imagen1](control.PNG)
+  ![Imagen1](imagenes/control.PNG)
 
-  ![Imagen1](gestion.PNG)
+  ![Imagen1](imagenes/gestion.PNG)
 
-  ![Imagen1](contact.PNG)
+  ![Imagen1](imagenes/contact.PNG)
 
-  ![Imagen1](citas.PNG)
+  ![Imagen1](imagenes/citas.PNG)
 
-  ![Imagen1](profile.PNG)
+  ![Imagen1](imagenes/profile.PNG)
 
-  ![Imagen1](about.PNG)
+  ![Imagen1](imagenes/about.PNG)
 
-  ![Imagen1](donators.PNG)
+  ![Imagen1](imagenes/donators.PNG)
 
 ## Conclusiones <a name="conclusiones"></a> 
 - Durante el desarrollo de este proyecto sobre el sistema de gestión de sangre, abordamos aspectos que contribuyeron significativamente a la eficiencia y seguridad del sistema, ya sea como el inicio de sesión del usuario o de no poder crear una cita sin registrarse después.
