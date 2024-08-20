@@ -100,6 +100,8 @@ $user = $_SESSION['user_data'];
                             <input type="email" class="form-control" id="correoElectronico" name="correo_electronico" value="<?php echo $user['correo_electronico']; ?>" readonly>
                         </div>
                         <a class="btn btn-primary" href="actualizarInfoUsuario.php">Actualizar información personal</a>
+
+                        <a class="btn btn-primary" href="mostrarCitasCliente.php">Tus citas</a>
                     </form>
                 </div>
             </div>
