@@ -133,7 +133,7 @@
                                     <input type="number" class="form-control" id="id_cita" name="id_cita" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="litros_obtenidos">Litros de Sangre Obtenidos:</label>
+                                    <label for="litros_obtenidos">Mililitros de Sangre Obtenidos:</label>
                                     <input type="number" step="0.1" class="form-control" id="cantidad_sangre" name="cantidad_sangre" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Finalizar Cita</button>

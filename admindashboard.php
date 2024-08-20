@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('dashboardQueries.php');
 
     if (!isset($_SESSION['user_data'])) {
         header("Location: login.php");
@@ -27,9 +28,6 @@
 </head>
 <body>
 
-<?php
-    include('dashboardQueries.php');
-?>
 
 <div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
@@ -114,6 +112,10 @@
                 <h4>Citas por Mes</h4>
                 <canvas id="chartCitasMes"></canvas>
             </div>
+            <div class="col-md-6">
+                <h4>Cantidad de Sangre</h4>
+                <canvas id="chartCantidadSangre"></canvas>
+            </div>
         </div>
 
 
@@ -160,9 +162,9 @@
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(hideMessage, 15000); 
         });
-    </script>
+    
 
-    <script>
+    
         const ctx = document.getElementById('chartTipoSangre');
         new Chart(ctx, {
             type: 'bar',
@@ -242,14 +244,14 @@
             }
         });
 
-        /*const ctxM = document.getElementById('chartCantidadSangre');
-        new Chart(ctxM, {
+        const ctxS = document.getElementById('chartCantidadSangre');
+        new Chart(ctxS, {
             type: 'line',
             data: {
-                labels: <?php echo json_encode(array_column($data_sangre, 'fecha')); ?>,
+                labels: <?php echo json_encode(array_column($flujo_sangre_data, 'fecha')); ?>,
                 datasets: [{
-                    label: 'Citas por Mes',
-                    data: <?php echo json_encode(array_column($data_sangre, 'total')); ?>,
+                    label: 'Cantidad por Sangre',
+                    data: <?php echo json_encode(array_column($flujo_sangre_data, 'total_sangre')); ?>,
                     fill: false,
                     borderColor: 'rgba(75, 192, 192, 1)',
                     tension: 0.1
@@ -262,7 +264,9 @@
                     }
                 }
             }
-        });*/
+        });
+
+
 </script>
 
     </body>
