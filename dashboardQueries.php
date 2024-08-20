@@ -27,7 +27,7 @@ function getTipoSangre($conexion) {
             $data_tipo_sangre[] = $row;
         }
     } else {
-          echo "Error en la consulta de tipo de sangre: " . mysqli_error($conexion);
+        echo "Error en la consulta de tipo de sangre: " . mysqli_error($conexion);
     }
     
     return $data_tipo_sangre;
@@ -50,30 +50,6 @@ function getProvincia($conexion) {
     return $data_provincia;
 }
 
-function getClinicas($conexion, $id_clinica) {
-    $data_clinicas = [];
-    $query_clinicas = "SELECT c.nombre_clinica, c.capacidad, COUNT(a.id_cita) as citas_agendadas 
-                       FROM tab_clinica c 
-                       LEFT JOIN tab_citas a ON c.id_clinica = a.id_clinica AND a.estado_cita = 'AGENDADA' 
-                       WHERE c.id_clinica = ? 
-                       GROUP BY c.nombre_clinica";
-
-    $stmt = $conexion->prepare($query_clinicas);
-    $stmt->bind_param("i", $id_clinica);
-    $stmt->execute();
-    $result_clinicas = $stmt->get_result();
-
-    if ($result_clinicas) {
-        while ($row = $result_clinicas->fetch_assoc()) {
-            $data_clinicas[] = $row;
-        }
-    } else {
-        echo "Error en la consulta de clínicas: " . mysqli_error($conexion);
-    }
-    
-    $stmt->close();
-    return $data_clinicas;
-}
 
 function getCitasEstado($conexion, $id_clinica) {
     $data_citas_estado = [];
@@ -124,7 +100,6 @@ function getCitasPorMes($conexion, $id_clinica) {
 
 $data_tipo_sangre = getTipoSangre($conexion);
 $data_provincia = getProvincia($conexion);
-$clinicas_data = getClinicas($conexion, $clinica_data['id_clinica']);
 $citas_estado_data = getCitasEstado($conexion, $clinica_data['id_clinica']);
 $citas_mes_data = getCitasPorMes($conexion, $clinica_data['id_clinica']);
 ?>

@@ -73,22 +73,18 @@
         </div>
         
         <div class="row">
-            <div class="col-md-6">
-                <h4>Capacidad Total vs Capacidad Usada de Clínicas</h4>
-                <canvas id="chartClinicas"></canvas>
-            </div>
-            <div class="col-md-6">
+        
+            <div class="col-md-4">
                 <h4>Citas por Estado</h4>
                 <canvas id="chartCitasEstado"></canvas>
             </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <h4>Citas por Mes</h4>
                 <canvas id="chartCitasMes"></canvas>
             </div>
         </div>
+        
+
     </main>
     
     <div id="footer" class="footer bg-dark text-white">
@@ -160,34 +156,6 @@ new Chart(ctxP, {
                             }
                         }
                     });
-
-const ctxC = document.getElementById('chartClinicas');
-new Chart(ctxC, {
-    type: 'bar',
-    data: {
-        labels: <?php echo json_encode(array_column($clinicas_data, 'nombre_clinica')); ?>,
-        datasets: [{
-            label: 'Capacidad Total',
-            data: <?php echo json_encode(array_column($clinicas_data, 'capacidad')); ?>,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        }, {
-            label: 'Capacidad Usada',
-            data: <?php echo json_encode(array_column($clinicas_data, 'citas_agendadas')); ?>,
-            backgroundColor: 'rgba(255, 159, 64, 0.2)',
-            borderColor: 'rgba(255, 159, 64, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
 
 const ctxE = document.getElementById('chartCitasEstado');
 new Chart(ctxE, {
