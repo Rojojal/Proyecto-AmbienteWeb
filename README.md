@@ -7,8 +7,8 @@
 * [Tecnologías Utilizadas](#tecnologías)
 * [Conclusiones](#conclusiones)
 * [Recomendaciones](#recomendaciones)
-* [Lecciones Aprendidas](#aprendizaje)
 * [Referencias](#referencias)
+* [Grupo de Proyecto](#grupo)
 
 ## Información sobre el Proyecto <a name="proyecto"></a> 
   ### Objetivo:
@@ -24,10 +24,10 @@ Forma de incluir imágenes
   ![Imagen1](https://user-images.githubusercontent.com/69361149/160888732-44fef9de-b60b-43e3-ba1e-1bf1ae004b52.png)
 
 ## Tecnologías Utilizadas <a name="tecnologías"></a> 
-- Frontend: HTML, CSS, JavaScript (incluyendo Chart.js para gráficos interactivos)
+- Frontend: HTML, CSS, JavaScript (incluyendo Chart.js para gráficos interactivos).
 - Backend: PHP
 - Base de Datos: MySQL
-- Herramientas de Prototipado: Figma para el diseño de interfaces
+- Herramientas de Prototipado: Figma
 - Frameworks/Bibliotecas: JQuery, Bootstrap
 
 ## Conclusiones <a name="conclusiones"></a> 
@@ -41,8 +41,14 @@ Forma de incluir imágenes
 - Otra recomendación es explorar la integración de un sistema en una plataforma móvil, esto facilitando el acceso y la participación de los usuarios en tiempo real, este desarrollo de la aplicación móvil permite a los donantes y administradores gestionar lo que son las citas, y actualizar su información de manera más eficiente.
 - Finalmente, como ultima recomendación, es importante mantener un enfoque continuo en la seguridad de los datos, revisando y actualizando regularmente las políticas y medidas de protección, ya que mediante la tecnología evoluciona las normativas de la protección de datos, tienen que garantizar una buena privacidad para la información médica del personal y de los usuarios. 
 
-## Lecciones aprendidas <a name="aprendizaje"></a> 
 ## Referencias <a name="referencias"></a> 
 - Un poco de los sitios visitados para investigar sobre los distintos temas que queríamos o necesitábamos aplicar en el proyecto:
--- https://www.youtube.com/watch?v=TxFtNz6ixug
-  -- https://www.chartjs.org/docs/latest/getting-started/
+  - https://www.youtube.com/watch?v=TxFtNz6ixug
+  - https://www.chartjs.org/docs/latest/getting-started/
+  - https://getbootstrap.com/docs/5.3/getting-started/introduction/
+
+## Grupo de Proyecto <a name="grupo"></a> 
+* Daniela Carreño Cordón
+* Dennis Sánchez Morales
+* Esteban Sanarrucia Molina
+* Josué García Rojas
