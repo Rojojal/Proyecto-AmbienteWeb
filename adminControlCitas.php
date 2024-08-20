@@ -1,21 +1,41 @@
 <?php
     session_start();
     include 'conexionBD.php';
-
+    include 'clinicaInfoHelper.php';
 
     if (!isset($_SESSION['user_data'])) {
         header("Location: login.php");
         exit();
     }
-    
+
     $user_data = $_SESSION['user_data'];
-    
+
     if ($user_data['administrador'] != 1) {
         header("Location: register_admin.php");
         exit();
     }
-    $query = "SELECT * FROM VistaControlCitas";
-    $result = $conexion->query($query);
+
+    // Obtener el ID de la clínica
+    if (isset($clinica_data['id_clinica'])) {
+        $clinica_id = $clinica_data['id_clinica'];
+
+        // Obtener citas por clínica
+        $stmt = $conexion->prepare("CALL ObtenerCitasPorClinica(?)");
+        $stmt->bind_param("i", $clinica_id);
+        $stmt->execute();
+        $resultCitas = $stmt->get_result();
+        $stmt->close();
+
+        // Obtener citas finalizadas por clínica
+        $stmt = $conexion->prepare("CALL ObtenerCitasFinalizadasPorClinica(?)");
+        $stmt->bind_param("i", $clinica_id);
+        $stmt->execute();
+        $resultCitasFinalizadas = $stmt->get_result();
+        $stmt->close();
+    } else {
+        echo "Error: No se ha encontrado información de la clínica.";
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +64,6 @@
                     <li class="nav-item"><a class="nav-link" href="admindashboard.php">Dashboard general</a></li>
                     <li class="nav-item"><a class="nav-link" href="adminCitas.php">Gestion de citas</a></li>
                     <li class="nav-item"><a class="nav-link" href="adminControlCitas.php">Control de citas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="adminVistasCitas.php">Vistas Citas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="adminConfiguracion.php">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" href="home.php">Salir</a></li>
                 </ul>
             </div>
@@ -62,38 +80,112 @@
         </nav>
     </div>
 
-    <div class="container mt-4">
-        <?php if ($result->num_rows > 0): ?>
-            <h2 class="mb-4">Control de Citas</h2>
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>ID Cita</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Usuario</th>
-                        <th>Email</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($row = $result->fetch_assoc()): ?>
+    <main>
+        <div class="container mt-4">
+            <!-- Sección de citas pendientes -->
+            <?php if ($resultCitas->num_rows > 0): ?>
+                <h2 class="mb-4">Control de Citas Pendientes</h2>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
                         <tr>
-                            <td><?php echo $row['id_cita']; ?></td>
-                            <td><?php echo $row['fecha_cita']; ?></td>
-                            <td><?php echo $row['hora_cita']; ?></td>
-                            <td><?php echo $row['nombre_completo']; ?></td>
-                            <td><?php echo $row['correo_electronico']; ?></td>
-                            <td><?php echo $row['estado_cita']; ?></td>
+                            <th>ID Cita</th>
+                            <th>ID Usuario</th>
+                            <th>Nombre Usuario</th>
+                            <th>Nombre Clínica</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
                         </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <p>No hay citas registradas.</p>
-        <?php endif; ?>       
-    </div>
-    
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $resultCitas->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['id_cita']; ?></td>
+                                <td><?php echo $row['id_usuario']; ?></td>
+                                <td><?php echo $row['nombre_usuario']; ?></td>
+                                <td><?php echo $row['nombre_clinica']; ?></td>
+                                <td><?php echo $row['fecha_cita']; ?></td>
+                                <td><?php echo $row['hora_cita']; ?></td>
+                                <td><?php echo $row['estado_cita']; ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No hay citas registradas.</p>
+            <?php endif; ?>       
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- Formulario para finalizar citas -->
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card profile-card">
+                    <div class="card-body">
+                        <h2 class="text-center">Finalizar cita</h2>
+                            <form action="finalizarCitasHelper.php" method="POST">
+                                <div class="form-group">
+                                    <label for="id_clinica">ID de la cita:</label>
+                                    <input type="number" class="form-control" id="id_cita" name="id_cita" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="litros_obtenidos">Litros de Sangre Obtenidos:</label>
+                                    <input type="number" step="0.1" class="form-control" id="cantidad_sangre" name="cantidad_sangre" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Finalizar Cita</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- Sección de citas finalizadas -->
+        <div class="container mt-4">
+            <?php if ($resultCitasFinalizadas->num_rows > 0): ?>
+                <h2 class="mb-4">Control de Citas Finalizadas</h2>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID Cita</th>
+                            <th>ID Usuario</th>
+                            <th>Nombre Usuario</th>
+                            <th>Nombre Clínica</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Cantidad de sangre recolectada</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($row = $resultCitasFinalizadas->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['id_cita']; ?></td>
+                                <td><?php echo $row['id_usuario']; ?></td>
+                                <td><?php echo $row['nombre_usuario']; ?></td>
+                                <td><?php echo $row['nombre_clinica']; ?></td>
+                                <td><?php echo $row['fecha_cita']; ?></td>
+                                <td><?php echo $row['hora_cita']; ?></td>
+                                <td><?php echo $row['cantidad_sangre']; ?></td>
+                                <td><?php echo $row['estado_cita']; ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No hay citas finalizadas registradas.</p>
+            <?php endif; ?>       
+        </div>
+    </main>
+
     <div id="footer" class="footer bg-dark text-white">
             <div class="container">
                 <div class="row">
@@ -105,7 +197,7 @@
                         <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
                     </div>
                     <div class="col-md-4">
-                        <a href="admindashboard.php" class="text-white">Iniciar como administrador</a>
+                        <a href="home.php" class="text-white">Volver</a>
                         <br>
                         <a href="contact.php" class="text-white">Contáctanos</a>
                     </div>
@@ -114,12 +206,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-    <script src="citasAgendadas.js"></script>
-    <script src="flujoSangre.js"></script>
 </body>
 </html>
-<?php
-    $conexion->close();
-?>

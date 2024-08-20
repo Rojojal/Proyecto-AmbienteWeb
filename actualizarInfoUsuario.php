@@ -1,5 +1,12 @@
 <?php
-    session_start();
+session_start(); 
+
+if (!isset($_SESSION['user_data'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$user = $_SESSION['user_data'];
 ?>
 
 <!DOCTYPE html>
@@ -8,13 +15,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regístra tu clínica en BloodCare</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>BloodCare</title>
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-    
+
 <div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
@@ -26,6 +34,7 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="date.php">Citas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="notificaciones.php">Notificaciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="infoDonantes.php">Información para donantes</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.php">Sobre nosotros</a></li>
                 </ul>
@@ -44,63 +53,79 @@
         </nav>
     </div>
 
+<main class="container my-5">
 
-    <main class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
+    <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card profile-card">
                     <div class="card-body">
-                        <h1 class="text-center">¡Regístra tu clínica en BloodCare!</h1>
-                        <form method="POST" action="registerAdminHelper.php">
-                            <input type="hidden" name="id_admin_clinica" value="<?php echo $_SESSION['user_data']['id_usuario']; ?>">
+                        <h1 class="text-center">Información personal</h1>
+                        <form>
                             <div class="form-group">
-                                <label for="fullName">Nombre: <?php echo $user['nombre_completo']; ?></label> 
+                                <label for="nombreCompleto">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombreCompleto" name="nombre_completo" value="<?php echo $user['nombre_completo']; ?>" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="id">Cédula: <?php echo $user['cedula']; ?></label>
+                                <label for="cedula">Cédula:</label>
+                                <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $user['cedula']; ?>" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="province">Dirección personal:</label>
+                                <label for="cedula">Tipo de sangre:</label>
+                                <input type="text" class="form-control" id="cedula" name="cedula" value="<?php echo $user['tipo_sangre']; ?>" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="province"><?php echo $user['provincia']; ?> <?php echo $user['canton']; ?> <?php echo $user['distrito']; ?></label>
+                                <label for="provincia">Provincia:</label>
+                                <input type="text" class="form-control" id="provincia" name="provincia" value="<?php echo $user['provincia']; ?>" require>
                             </div>
                             <div class="form-group">
-                                <label>Información de la clínica</label>
+                                <label for="canton">Cantón:</label>
+                                <input type="text" class="form-control" id="canton" name="canton" value="<?php echo $user['canton']; ?>" require>
                             </div>
                             <div class="form-group">
-                                <label for="address">Nombre de la clínica</label>
-                                <input type="text" class="form-control" id="nombre_clinica" name="nombre_clinica" placeholder="Ingresa el nombre de la clínica" required>
+                                <label for="distrito">Distrito:</label>
+                                <input type="text" class="form-control" id="distrito" name="distrito" value="<?php echo $user['distrito']; ?>" require>
                             </div>
                             <div class="form-group">
-                                <label for="address">Capacidad de almacenamiento en Litros</label>
-                                <input type="text" class="form-control" id="cantidad_litros" name="cantidad_litros" placeholder="Ingresa la capacidad de la clínica" required>
+                                <label for="direccionDetallada">Dirección Detallada:</label>
+                                <input type="text" class="form-control" id="direccionDetallada" name="direccion_detallada" value="<?php echo $user['direccion_detallada']; ?>" require>
                             </div>
                             <div class="form-group">
-                                <label for="address">Dirección de la clínica</label>
-                                <input type="text" class="form-control" id="direccion_clinica" name="direccion_clinica" placeholder="Ingresa la dirección de la clínica" required>
+                                <label for="correoElectronico">Correo Electrónico:</label>
+                                <input type="email" class="form-control" id="correoElectronico" name="correo_electronico" value="<?php echo $user['correo_electronico']; ?>" require>
                             </div>
-                            <div class="form-group">
-                                <label for="address">Número de teléfono</label>
-                                <input type="text" class="form-control" id="numero_clinica" name="numero_clinica" placeholder="Ingresa el número de teléfono" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Correo electrónico de la clínica</label>
-                                <input type="text" class="form-control" id="correo_clinica" name="correo_clinica" placeholder="Ingresa el correo electrónico de la clínica" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Número de registro de la clínica</label>
-                                <input type="text" class="form-control" id="registro_clinica" name="registro_clinica" placeholder="Ingresa el número de registro de la clínica" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Registrar clínica</button>
+                            <button type="submit" class="btn btn-primary">Actualizar información personal</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card profile-card">
+                    <div class="card-body">
+                        <h2 class="text-center">Actualizar Contraseña</h2>
+                        <form method="POST" action="actualizarContraseñaHelper.php">
+                            <div class="form-group">
+                                <label for="passwordActual">Contraseña Actual:</label>
+                                <input type="password" class="form-control" id="passwordActual" name="passwordActual" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordNueva">Nueva Contraseña:</label>
+                                <input type="password" class="form-control" id="passwordNueva" name="passwordNueva" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordConfirm">Confirmar Nueva Contraseña:</label>
+                                <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Actualizar Contraseña</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
 
-    <div id="footer" class="footer bg-dark text-white">
+<div id="footer" class="footer bg-dark text-white">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
@@ -118,10 +143,6 @@
                 </div>
             </div>
         </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script> 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
+
 </html>

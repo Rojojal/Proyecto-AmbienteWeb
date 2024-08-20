@@ -97,9 +97,34 @@ function getCitasPorMes($conexion, $id_clinica) {
     return $data_citas_mes;
 }
 
+function getCantidadSangrePorFecha($conexion, $id_clinica) {
+    $data_sangre = [];
+    $query_sangre = "SELECT DATE_FORMAT(fecha_cita, %Y-%m-%d') as fecha, SUM(cantidad_sangre) as total_sangre
+                     FROM tab_citas
+                     WHERE id_clinica = ? AND estado_cita = 'FINALIZADA'
+                     GROUP BY fecha
+                     ORDER BY fecha";
+
+    $stmt = $conexion->prepare($query_sangre);
+    $stmt->bind_param("i", $id_clinica);
+    $stmt->execute();
+    $result_sangre = $stmt->get_result();
+
+    if ($result_sangre) {
+        while ($row = $result_sangre->fetch_assoc()) {
+            $data_sangre[] = $row;
+        }
+    } else {
+        echo "Error en la consulta de cantidad de sangre: " . mysqli_error($conexion);
+    }
+
+    $stmt->close();
+    return $data_sangre;
+}
 
 $data_tipo_sangre = getTipoSangre($conexion);
 $data_provincia = getProvincia($conexion);
 $citas_estado_data = getCitasEstado($conexion, $clinica_data['id_clinica']);
 $citas_mes_data = getCitasPorMes($conexion, $clinica_data['id_clinica']);
+$flujo_sangre_data = getCantidadSangrePorFecha($conexion, $id_clinica['id_clinica']);
 ?>

@@ -42,8 +42,6 @@
                     <li class="nav-item"><a class="nav-link" href="admindashboard.php">Dashboard general</a></li>
                     <li class="nav-item"><a class="nav-link" href="adminCitas.php">Gestion de citas</a></li>
                     <li class="nav-item"><a class="nav-link" href="adminControlCitas.php">Control de citas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="adminVistasCitas.php">Vistas Citas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="adminConfiguracion.php">Configuración</a></li>
                     <li class="nav-item"><a class="nav-link" href="home.php">Salir</a></li>
                 </ul>
             </div>
@@ -118,22 +116,22 @@
     </div>
 
     <div id="footer" class="footer bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <p>2024 | Derechos reservados</p>
-                    <p>San Pedro, San José</p>
-                </div>
-                <div class="col-md-4">
-                    <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
-                </div>
-                <div class="col-md-4">
-                    <a href="admindashboard.php" class="text-white">Iniciar como administrador</a>
-                    <br>
-                    <a href="contact.php" class="text-white">Contáctanos</a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <p>2024 | Derechos reservados</p>
+                        <p>San Pedro, San José</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
+                    </div>
+                    <div class="col-md-4">
+                        <a href="home.php" class="text-white">Volver</a>
+                        <br>
+                        <a href="contact.php" class="text-white">Contáctanos</a>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

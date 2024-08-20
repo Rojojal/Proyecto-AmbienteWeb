@@ -15,7 +15,7 @@
 
 <body>
     
-    <div id="header">
+<div id="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
                 <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
@@ -26,7 +26,6 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="date.php">Citas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notificaciones.php">Notificaciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="infoDonantes.php">Información para donantes</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.php">Sobre nosotros</a></li>
                 </ul>
@@ -35,6 +34,7 @@
                 <?php if (isset($_SESSION['user_data'])): ?>
                 <?php $user = $_SESSION['user_data'];?>
                     <li class="nav-item"><span class="nav-link">Bienvenido, <?php echo $user['nombre_completo']; ?></span></li>
+                    <li class="nav-item"><a class="nav-link" href="perfilUsuario.php">Ver Perfil</a></li>
                     <li class="nav-item"><a class="nav-link" href="closeSession.php">Cerrar Sesión</a></li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link register .nav-link register Background Color" href="register.php">Registrarse</a></li>
@@ -148,7 +148,7 @@
                         <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
                     </div>
                     <div class="col-md-4">
-                        <a href="admindashboard.php" class="text-white">Iniciar como administrador</a>
+                        <a href="admindashboard.php" class="text-white">Administrar Clínica</a>
                         <br>
                         <a href="contact.php" class="text-white">Contáctanos</a>
                     </div>

@@ -1,13 +1,12 @@
 <?php
     // Conexión Dennis
     
-    /*
+    
     $conexion = new mysqli("localhost", "dennis4", "1234", "proyecto");
 
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     } else {
-        //echo "Conexión exitosa";
     }
 
     // Conexion Esteban
@@ -17,7 +16,6 @@
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     } else {
-        echo "Conexión exitosa";
     }
         */
 
@@ -28,7 +26,6 @@
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     } else {
-        echo "Conexión exitosa";
     }*/
 
  
@@ -39,7 +36,6 @@
     if ($conexion->connect_error) {
         die("Conexión fallida: " . $conexion->connect_error);
     } else {
-        //echo "Conexión exitosa";
     }*/
 
     // Conexion Josué
@@ -49,7 +45,5 @@
       if ($conexion->connect_error) {
           die("Conexión fallida: " . $conexion->connect_error);
       } else {
-        // Para q no se muestre el ecoho en dashboard general
-        error_log("Conexión exitosa");
       }*/
 ?>

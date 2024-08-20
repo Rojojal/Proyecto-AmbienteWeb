@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,6 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="date.php">Citas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notificaciones.php">Notificaciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="infoDonantes.php">Información para donantes</a></li>
                     <li class="nav-item"><a class="nav-link" href="aboutus.php">Sobre nosotros</a></li>
                 </ul>
@@ -33,6 +32,7 @@
                 <?php if (isset($_SESSION['user_data'])): ?>
                 <?php $user = $_SESSION['user_data'];?>
                     <li class="nav-item"><span class="nav-link">Bienvenido, <?php echo $user['nombre_completo']; ?></span></li>
+                    <li class="nav-item"><a class="nav-link" href="perfilUsuario.php">Ver Perfil</a></li>
                     <li class="nav-item"><a class="nav-link" href="closeSession.php">Cerrar Sesión</a></li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link register .nav-link register Background Color" href="register.php">Registrarse</a></li>
@@ -42,11 +42,18 @@
         </nav>
     </div>
 
-
     <main class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center">¡Inicia Sesión en BloodCare!</h2>
+                <?php if (isset($_SESSION['error_message'])): ?>
+                    <div id="error-message" class="alert alert-danger">
+                        <?php
+                        echo $_SESSION['error_message'];
+                        unset($_SESSION['error_message']); 
+                        ?>
+                    </div>
+                <?php endif; ?>
                 <form method="POST" action="loginhelper.php">
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
@@ -78,7 +85,7 @@
                         <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
                     </div>
                     <div class="col-md-4">
-                        <a href="admindashboard.php" class="text-white">Iniciar como administrador</a>
+                        <a href="admindashboard.php" class="text-white">Administrar Clínica</a>
                         <br>
                         <a href="contact.php" class="text-white">Contáctanos</a>
                     </div>
@@ -89,5 +96,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var messageElement = document.getElementById('error-message');
+            if (messageElement) {
+                setTimeout(function() {
+                    messageElement.style.display = 'none';
+                }, 15000); 
+            }
+        });
+    </script>
 </body>
 </html>
