@@ -1,5 +1,7 @@
 <?php
     session_start();
+    include 'conexionBD.php';
+
 
     if (!isset($_SESSION['user_data'])) {
         header("Location: login.php");
@@ -12,6 +14,8 @@
         header("Location: register_admin.php");
         exit();
     }
+    $query = "SELECT * FROM VistaControlCitas";
+    $result = $conexion->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +63,35 @@
     </div>
 
     <div class="container mt-4">
-
+        <?php if ($result->num_rows > 0): ?>
+            <h2 class="mb-4">Control de Citas</h2>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID Cita</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row['id_cita']; ?></td>
+                            <td><?php echo $row['fecha_cita']; ?></td>
+                            <td><?php echo $row['hora_cita']; ?></td>
+                            <td><?php echo $row['nombre_completo']; ?></td>
+                            <td><?php echo $row['correo_electronico']; ?></td>
+                            <td><?php echo $row['estado_cita']; ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p>No hay citas registradas.</p>
+        <?php endif; ?>       
     </div>
     
     <div id="footer" class="footer bg-dark text-white">
@@ -88,3 +120,6 @@
     <script src="flujoSangre.js"></script>
 </body>
 </html>
+<?php
+    $conexion->close();
+?>
