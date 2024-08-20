@@ -19,16 +19,18 @@
 - Calendario de Donaciones: Permite la reserva y gestión de citas para donaciones, optimizando el flujo de donantes.
 - Estadísticas y Análisis: Genera informes detallados sobre las donaciones.
 
-Forma de incluir imágenes
-  - Incluir imágenes de como se ve el proyecto:
-  ![Imagen1](https://user-images.githubusercontent.com/69361149/160888732-44fef9de-b60b-43e3-ba1e-1bf1ae004b52.png)
-
 ## Tecnologías Utilizadas <a name="tecnologías"></a> 
 - Frontend: HTML, CSS, JavaScript (incluyendo Chart.js para gráficos interactivos).
 - Backend: PHP
 - Base de Datos: MySQL
 - Herramientas de Prototipado: Figma
 - Frameworks/Bibliotecas: JQuery, Bootstrap
+
+  ![Imagen1](inicio.JPG)
+  
+  ![Imagen1](home.JPG)
+
+  ![Imagen1](dashboard.JPG)
 
 ## Conclusiones <a name="conclusiones"></a> 
 - Durante el desarrollo de este proyecto sobre el sistema de gestión de sangre, abordamos aspectos que contribuyeron significativamente a la eficiencia y seguridad del sistema, ya sea como el inicio de sesión del usuario o de no poder crear una cita sin registrarse después.
