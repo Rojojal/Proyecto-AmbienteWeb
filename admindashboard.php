@@ -1,6 +1,5 @@
 <?php
     session_start();
-    include('dashboardQueries.php');
 
     if (!isset($_SESSION['user_data'])) {
         header("Location: login.php");
@@ -28,8 +27,12 @@
 </head>
 <body>
 
-
 <div id="header">
+
+<?php
+
+    include('dashboardQueries.php');
+?>
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="home.php">
                 <img src="logo1.jpeg" alt="BloodCare Logo" style="height: 40px;">
@@ -93,31 +96,41 @@
 
         <div class="row">
             <div class="col-md-6">
-                <h4>Distribución de Usuarios por Tipo de Sangre</h4>
-                <canvas id="chartTipoSangre"></canvas>
+                <div class="container">
+                    <h4>Distribución de Usuarios por Tipo de Sangre</h4>
+                    <canvas id="chartTipoSangre"></canvas>
+                </div>
             </div>
             <div class="col-md-6">
-            <h4>Cantidad de Usuarios por Provincia</h4>
-                <canvas id="chartProvincia"></canvas>
+                <div class="container">
+                    <h4>Cantidad de Usuarios por Provincia</h4>
+                    <canvas id="chartProvincia"></canvas>
+                </div>
             </div>
         </div>
-        
+        <br>
+        <br>
+        <br>
         <div class="row">
-        
             <div class="col-md-4">
-                <h4>Citas por Estado</h4>
-                <canvas id="chartCitasEstado"></canvas>
+                <div class="container">
+                    <h4>Citas por Estado</h4>
+                    <canvas id="chartCitasEstado"></canvas>
+                </div>
             </div>
             <div class="col-md-6">
-                <h4>Citas por Mes</h4>
-                <canvas id="chartCitasMes"></canvas>
+                <div class="container">
+                    <h4>Citas por Mes</h4>
+                    <canvas id="chartCitasMes"></canvas>
+                </div>
             </div>
             <div class="col-md-6">
-                <h4>Cantidad de Sangre</h4>
-                <canvas id="chartCantidadSangre"></canvas>
+                <div class="container">
+                    <h4>Cantidad de Sangre</h4>
+                    <canvas id="chartCantidadSangre"></canvas>
+                </div>
             </div>
         </div>
-
 
         
 

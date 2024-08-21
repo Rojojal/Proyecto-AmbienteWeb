@@ -173,3 +173,36 @@ h4 {
 .profile-card p {
     margin: 0.5rem 0;
 }
+
+.graph-container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    width: calc(50% - 0.75rem);
+    box-sizing: border-box;
+}
+
+
+.chart {
+    width: 100%;
+    height: 200px;
+}
+
+.row-graphs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.graph-container-full {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .graph-container {
+        width: 100%; 
+    }
+}
